@@ -1,0 +1,66 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(137, 85, 18);
+
+}
+
+
+.container{
+    background-image: url("https://img.freepik.com/free-photo/indian-circular-food-frame-with-copy-space_23-2148723470.jpg?t=st=1737467197~exp=1737470797~hmac=a8163f0c23179a13c3999717ea69378d00efafacd962f6f9f4cd1d95ef3e79a0&w=740");
+    background-size: cover;
+    height: 50vh;
+    
+  
+    width: 100vw;
+   
+}
+.heading{
+    color: white;
+    font-size: 80px;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+}
+.navLink{
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+.top-img{
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+
+}
+
+
+.sub-head{
+    color: white;
+    font-size: 50px;
+    
+    text-align: center;
+    margin-top: 10px;
+}
+
+.footer{
+    text-align: center;
+    padding: 10px;
+    margin: 20px;
+    margin-top: 50px;
+    margin-left: 110px;
+    height: 20vh;
+    
+}
+
+.copyright{
+    margin-top: 30px;
+    text-align: center;
+
+}
+
+.body{
+    background-color: rgb(220, 136, 26);
+    
+}

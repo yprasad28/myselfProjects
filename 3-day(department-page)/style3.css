@@ -1,0 +1,46 @@
+.notice-board{
+    text-align: center;
+    border: 5px solid green;
+    padding: 20px;
+    height: 60vh;
+    margin: 20px;
+    background-color: rgba(241, 176, 176, 0.5);
+}
+
+h2{
+    margin-top: 10px;
+}
+
+.exam1{
+    border: 1px solid;
+   margin: 10px;
+   padding: 10px;
+   word-spacing: 2px;
+   background-color: aquamarine;
+   
+   
+}
+.exam2{
+    border: 1px solid;
+   margin: 10px;
+   padding: 10px;
+   word-spacing: 2px;
+   background-color: rgb(102, 255, 0);
+    
+   
+}
+.exam3{
+    border: 1px solid;
+   margin: 10px;
+   padding: 10px;
+   word-spacing: 2px;
+   background-color: blueviolet;
+    
+   
+}
+
+.footer{
+    text-align: center;
+    color: rgb(105, 92, 92);
+    font-size: 15px;
+}

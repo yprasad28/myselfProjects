@@ -1,0 +1,28 @@
+.col{
+
+    padding-bottom: 12px;
+    padding-top: 12px; 
+    background-color: bisque;
+    margin: 0px;
+    border: 2px solid red;
+}
+
+body{
+    padding: 20px;
+    
+}
+.day{
+    font-weight: 600;
+    background-color: rgb(43, 217, 226);
+    font-family: sans-serif;
+    font-size: 18px;
+}
+.first{
+    background-color: rgb(214, 166, 23);
+    font-weight: 600;   
+}
+
+.lunch{
+    background-color: aquamarine;
+    font-weight: 600;
+}

@@ -1,0 +1,20 @@
+.container{
+    padding: 5px;
+    margin: 15px;
+    text-align: center;
+    
+}
+
+.img{
+    height: 50vh;
+    width: 60vw;
+}
+
+.article-date{
+    color: gray;
+}
+
+.article-data{
+    font-family: lato, Arial;
+    font-size: 15px;
+}

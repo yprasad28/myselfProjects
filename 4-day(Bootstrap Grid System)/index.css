@@ -1,0 +1,19 @@
+.grid{
+    padding: 10px;
+    border: 2px solid rebeccapurple;
+    text-align: center;
+    
+}
+h2{
+    text-decoration: underline;
+    padding: 10px;
+  
+}
+p{
+    padding: 10px;
+}
+.container{
+    margin-top: 20px;
+    width: 100%;
+
+}
