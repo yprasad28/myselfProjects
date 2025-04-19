@@ -14,7 +14,7 @@ outerFunction()
 console.log(globalStar) // "RamCharan is the Global Star"
 //here varaible is declared outside the scope of the function thats why its accessible
 
-console.log(localStar) // undefined becasue not declared in outside
+// console.log(localStar) // undefined becasue not declared in outside
 
 //Block Scope 
 // Here block of declared variables are accessible in block scope only not in globally
@@ -29,7 +29,7 @@ if (true){
     
 }
 
-console.log(blockVar) //In globally(outside)tried to access the block scope variables will cause error 
+// console.log(blockVar) //In globally(outside)tried to access the block scope variables will cause error 
 
 
 

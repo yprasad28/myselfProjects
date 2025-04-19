@@ -1,0 +1,26 @@
+.logo-image{
+    height: 60px;
+    width: 60px;
+
+}
+
+.nav-head{
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: 25px;
+    color: white;
+}
+
+.image{
+    width: 40%;
+    height: 50vh;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

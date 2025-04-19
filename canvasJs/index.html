@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbles App</title>
+    <style>
+        .app-head {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 35px;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        #appContainer {
+            margin-top: 20px;
+        }
+
+        canvas {
+            border: 2px solid #000;
+            background: white;
+        }
+
+        #resetButton {
+            margin-top: 10px;
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 730px;
+            box-shadow: 4px 3px 3px 2px  black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="appContainer">
+        <h1 class="app-head">Bubbles App</h1>
+        <canvas id="appCanvas" width="800" height="400"></canvas>
+        <br>
+        <button id="resetButton">Reset</button>
+    </div>
+
+    <script>
+        class BubblesGame {
+            #canvas;
+            #ctx;
+            #circles;
+            #arrows;
+
+            constructor() {
+                this.#canvas = document.getElementById('appCanvas');
+                this.#ctx = this.#canvas.getContext('2d');
+
+
+                this.#initializeGameElements();
+
+
+                this.#canvas.addEventListener('click', (e) => this.#handleClick(e));
+                document.getElementById('resetButton').addEventListener('click', () => this.reset());
+
+                this.draw();
+            }
+
+
+            #initializeGameElements() {
+                const circleColors = ['#FFD700', '#4169E1', '#DC143C', '#32CD32'];
+                this.#circles = circleColors.map((color, index) => ({
+                    x: 100,
+                    y: 80 + index * 80,
+                    radius: 30,
+                    color,
+                    originalColor: color
+                }));
+
+                this.#arrows = this.#circles.map(circle => ({
+                    x: 700,
+                    originalX: 700,
+                    y: circle.y,
+                    isMoving: false
+                }));
+            }
+
+            draw() {
+                this.#ctx.clearRect(0, 0, this.#canvas.width, this.#canvas.height);
+
+
+                this.#circles.forEach(circle => this.#drawCircle(circle));
+                this.#arrows.forEach(arrow => this.#drawArrow(arrow));
+            }
+
+            #drawCircle(circle) {
+                this.#ctx.beginPath();
+                this.#ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
+                this.#ctx.fillStyle = circle.color;
+                this.#ctx.fill();
+                this.#ctx.strokeStyle = '#000';
+                this.#ctx.stroke();
+            }
+
+            #drawArrow(arrow) {
+                this.#ctx.fillStyle = '#000';
+                this.#ctx.beginPath();
+                this.#ctx.moveTo(arrow.x + 20, arrow.y);
+                this.#ctx.lineTo(arrow.x - 20, arrow.y);
+                this.#ctx.lineWidth = 2;
+                this.#ctx.stroke();
+
+                this.#ctx.beginPath();
+                this.#ctx.moveTo(arrow.x - 20, arrow.y);
+                this.#ctx.lineTo(arrow.x - 10, arrow.y - 10);
+                this.#ctx.lineTo(arrow.x - 10, arrow.y + 10);
+                this.#ctx.closePath();
+                this.#ctx.fill();
+            }
+
+            #handleClick(event) {
+                const rect = this.#canvas.getBoundingClientRect();
+                const clickX = event.clientX - rect.left;
+                const clickY = event.clientY - rect.top;
+
+                this.#circles.forEach((circle, index) => {
+                    const distance = Math.hypot(clickX - circle.x, clickY - circle.y);
+                    if (distance <= circle.radius && !this.#arrows[index].isMoving) {
+                        this.#arrows[index].isMoving = true;
+
+                        requestAnimationFrame(() => this.#animate());
+                    }
+                });
+            }
+
+            #animate() {
+                let needsAnimation = false;
+
+                this.#arrows.forEach((arrow, index) => {
+                    if (arrow.isMoving) {
+                        arrow.x -= 5;
+                        if (arrow.x <= this.#circles[index].x + this.#circles[index].radius) {
+                            arrow.isMoving = false;
+                            this.#circles[index].color = '#808080';
+                        } else {
+                            needsAnimation = true;
+                        }
+                    }
+                });
+
+                this.draw();
+
+                if (needsAnimation) {
+
+                    requestAnimationFrame(() => this.#animate());
+                }
+            }
+
+            reset() {
+                this.#circles.forEach(circle => circle.color = circle.originalColor);
+                this.#arrows.forEach(arrow => {
+                    arrow.x = arrow.originalX;
+                    arrow.isMoving = false;
+                });
+                this.draw();
+            }
+        }
+
+        window.onload = () => new BubblesGame();
+    </script>
+</body>
+
+</html>

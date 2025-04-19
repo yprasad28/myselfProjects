@@ -1,0 +1,57 @@
+
+body{
+    font-family: "bree serif",sans-serif;
+}
+.container{
+    background-color: antiquewhite;
+    height: 150vh;
+    width: 20%;
+    background-size: cover;
+    margin-right: 30px;
+}
+
+.para2{
+   
+    color:grey;
+    font-size: 15px;
+}
+
+.card1{
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.card2{
+    
+    background-color:white;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.img{
+    border-radius: 10px;
+    height: 4vh;
+}
+
+.imgvth{
+    display: flex;
+    align-items: center;
+    
+}
+img{
+    margin-right: 8px;
+    
+}
+
+.sub-head{
+    
+    font-size: 18px;
+}
+
+span{
+    color: rgb(23, 92, 219);
+    font-weight: bold;
+    margin-left: 100px;
+}
